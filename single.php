@@ -149,6 +149,8 @@
 					<div class="post-content">
 						    		            			            	                                                                                            
 						<?php the_content(); ?>
+
+						<?php comments_template( '', true ); ?>
 								
 						<?php wp_link_pages(); ?>
 						
@@ -257,9 +259,7 @@
 						<div class="clear"></div>
 							
 					</div> <!-- /post-meta-container -->
-																		
-					<?php comments_template( '', true ); ?>
-												                        
+																														                        
 			   	<?php endwhile; else: ?>
 			
 					<p><?php _e("We couldn't find any posts that matched your query. Please try again.", "baskerville"); ?></p>
