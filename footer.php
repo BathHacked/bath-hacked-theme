@@ -121,9 +121,9 @@
 	<div class="credits-inner section-inner">
 
 		<p class="credits-left fleft">
-		
-			Copyright &copy; <?php echo date("Y") ?> <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>. <span>All Rights Reserved.</span>
-		
+			Copyright &copy; <?php echo date("Y") ?> <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>. <span>All Rights Reserved.</span><br />
+			<br />
+			Company No. 09549061
 		</p>
 		
 		<div class="clear"></div>
