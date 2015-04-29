@@ -725,4 +725,14 @@ class baskerville_Customize {
 add_action( 'customize_register' , array( 'baskerville_Customize' , 'register' ) );
 
 
+// Require a featured image of a minimum size
+function theme_force_featured_image( $options ){
+    $options['post'] = array(
+        'width'  => 436,
+        'height' => 436
+    );
+    return $options;
+}
+add_filter( 'force_featured_image_post_type', 'theme_force_featured_image' );
+
 ?>
