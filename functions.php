@@ -755,4 +755,11 @@ function remove_admin_bar() {
 }
 add_action('after_setup_theme', 'remove_admin_bar');
 
+
+// Redirect to the homepage after logging in for all but Administrators
+function bh_login_redirect( $redirect_to, $request, $user  ) {
+	return ( is_array( $user->roles ) && in_array( 'administrator', $user->roles ) ) ? admin_url() : site_url();
+}
+add_filter( 'login_redirect', 'bh_login_redirect', 10, 3 );
+
 ?>
