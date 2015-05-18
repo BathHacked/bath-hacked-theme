@@ -735,4 +735,24 @@ function theme_force_featured_image( $options ){
 }
 add_filter( 'force_featured_image_post_type', 'theme_force_featured_image' );
 
+
+// Disable access to back-end for but Administrators
+function bh_blockusers_init() {
+    if ( is_admin() && ! current_user_can( 'administrator' ) && 
+       ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+        wp_redirect( home_url() );
+        exit;
+    }
+}
+add_action( 'init', 'bh_blockusers_init' );
+
+
+// Disable Admin bar for all but Administrators
+function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+	  show_admin_bar(false);
+	}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
 ?>
