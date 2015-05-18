@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Full width template
+Template Name: Members Directory
 */
 ?>
 
@@ -48,16 +48,24 @@ Template Name: Full width template
 				   				        			        		                
 					<div class="post-content">
 								                                        
-						<?php the_content(); ?>
+						<?php 
+
+							the_content();
 						
-						<?php if ( current_user_can( 'manage_options' ) ) : ?>
-																								
-						<?php endif; ?>
+							// The Query
+						    $wp_user_search = new WP_User_Query(array(
+						    	'fields' => 'all_with_meta'
+						    ));
+						    $members = $wp_user_search->get_results();
+
+							foreach ($members as $member) {
+								echo '<strong>' . $member->display_name . '</strong><br />';
+								echo '<p>' . $member->get('description') . '</p>';
+							}
+						?>
 															            			                        
 					</div> <!-- /post-content -->
-					
-					<?php comments_template( '', true ); ?>
-									
+														
 				</div> <!-- /post -->
 			
 			<?php endwhile; else: ?>

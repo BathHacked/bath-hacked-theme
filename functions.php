@@ -764,17 +764,16 @@ add_filter( 'login_redirect', 'bh_login_redirect', 10, 3 );
 
 
 // Show Login in / out Menu item depending on state
-function bh_loginout_menu_link( $items, $args ) {
-	if ($args->theme_location == 'primary') {
-		if (is_user_logged_in()) {
-			$items .= '<li class="right"><a href="' . wp_logout_url( home_url() ) . '">Log Out</a></li>';
-		} else {
-			$items .= '<li class="right"><a href="' . wp_login_url( get_permalink() ) . '">Log In</a></li>';
-		}
-	}
-	return $items;
-}
-add_filter( 'wp_nav_menu_items', 'bh_loginout_menu_link', 10, 2 );
-
+// function bh_loginout_menu_link( $items, $args ) {
+// 	if ($args->theme_location == 'primary') {
+// 		if (is_user_logged_in()) {
+// 			$items .= '<li class="right"><a href="' . wp_logout_url( home_url() ) . '">Log Out</a></li>';
+// 		} else {
+// 			$items .= '<li class="right"><a href="' . wp_login_url( get_permalink() ) . '">Log In</a></li>';
+// 		}
+// 	}
+// 	return $items;
+// }
+// add_filter( 'wp_nav_menu_items', 'bh_loginout_menu_link', 10, 2 );
 
 ?>
