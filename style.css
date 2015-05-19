@@ -30,6 +30,7 @@
 	12.	Footer
 	13. Credits
 	14.	Responsive
+	15. Custom CSS
 
 ----------------------------------------------------------------------------------- */
 
@@ -84,6 +85,18 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    *zoom:1;
 }
 
 
@@ -628,7 +641,7 @@ body a {
 
 .post-header { 
 	position: relative; 
-	padding: 8% 10%;
+	padding: 4% 5%;
 	border-bottom: 1px solid #eee;
 }
 
@@ -1059,7 +1072,7 @@ body.single-post .content.center {
 
 .single-post .post-title { font-size: 2.25em; }
 
-.single-post .post-content { padding: 10%; }
+.single-post .post-content { padding: 5%; }
 
 /* format audio */
 
@@ -3070,4 +3083,49 @@ img#wpstats { display: none; } /* Silly WordPress stats */
 	.comment-form textarea { height: 150px; }
 	
 	
+}
+
+
+/* -------------------------------------------------------------------------------- */
+/*	15. Custom CSS
+/* -------------------------------------------------------------------------------- */
+
+/* Members Directory */
+
+/* Number of members */
+p.members-count {
+	margin-bottom: 80px;
+	text-align: center;
+}
+
+/* Members */
+.member {
+	margin: 0 auto 40px auto;
+	width: 75%;
+}
+
+	/* Image Container */
+	.member .fleft {
+		float: left;
+		width: 25%;
+	}
+
+		/* User Images */
+		.member .fleft img {
+			display: block;
+			margin: 0 auto;
+		}
+
+	/* Text Container */
+	.member .fright {
+		float: right;
+		width: 75%;
+		text-align: left;
+	}
+
+
+/* Gravity Forms: Fix margins for lists in HTML blocks */
+body .gform_wrapper div.gform_body ul.gform_fields li.gfield.gfield_html ul, 
+body .gform_wrapper form div.gform_body ul.gform_fields li.gfield.gfield_html ul {
+	margin: 1em 0 1em 1.5em !important;
 }

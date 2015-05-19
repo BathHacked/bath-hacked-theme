@@ -47,7 +47,7 @@ Template Name: Members Directory
 					<?php endif; ?>
 				   				        			        		                
 					<div class="post-content">
-								                                        
+
 						<?php 
 
 							the_content();
@@ -58,9 +58,19 @@ Template Name: Members Directory
 						    ));
 						    $members = $wp_user_search->get_results();
 
+						    echo '<p class="members-count"><strong>We current have ' . count($members) . ' loyal hackers.</strong></p>';
+
 							foreach ($members as $member) {
-								echo '<strong>' . $member->display_name . '</strong><br />';
-								echo '<p>' . $member->get('description') . '</p>';
+								echo '<div class="member clearfix">';
+									echo '<div class="fleft">';
+										echo get_avatar($member->ID);
+									echo '</div>';
+
+									echo '<div class="fright">';
+										echo '<strong>' . $member->display_name . '</strong><br />';
+										echo '<p>' . $member->get('description') . '</p>';
+									echo '</div>';
+								echo '</div>';
 							}
 						?>
 															            			                        
