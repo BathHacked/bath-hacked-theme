@@ -735,45 +735,4 @@ function theme_force_featured_image( $options ){
 }
 add_filter( 'force_featured_image_post_type', 'theme_force_featured_image' );
 
-
-// Disable access to back-end for but Administrators
-function bh_blockusers_init() {
-    if ( is_admin() && ! current_user_can( 'administrator' ) && 
-       ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-        wp_redirect( home_url() );
-        exit;
-    }
-}
-add_action( 'init', 'bh_blockusers_init' );
-
-
-// Disable Admin bar for all but Administrators
-function remove_admin_bar() {
-	if (!current_user_can('administrator') && !is_admin()) {
-	  show_admin_bar(false);
-	}
-}
-add_action('after_setup_theme', 'remove_admin_bar');
-
-
-// Redirect to the homepage after logging in for all but Administrators
-function bh_login_redirect( $redirect_to, $request, $user  ) {
-	return ( is_array( $user->roles ) && in_array( 'administrator', $user->roles ) ) ? admin_url() : site_url();
-}
-add_filter( 'login_redirect', 'bh_login_redirect', 10, 3 );
-
-
-// Show Login in / out Menu item depending on state
-// function bh_loginout_menu_link( $items, $args ) {
-// 	if ($args->theme_location == 'primary') {
-// 		if (is_user_logged_in()) {
-// 			$items .= '<li class="right"><a href="' . wp_logout_url( home_url() ) . '">Log Out</a></li>';
-// 		} else {
-// 			$items .= '<li class="right"><a href="' . wp_login_url( get_permalink() ) . '">Log In</a></li>';
-// 		}
-// 	}
-// 	return $items;
-// }
-// add_filter( 'wp_nav_menu_items', 'bh_loginout_menu_link', 10, 2 );
-
 ?>

@@ -420,7 +420,8 @@ body a {
 	font-weight: 700;
 }
 
-.main-menu > li:first-child > a { margin-left: 0; }
+	.main-menu > li:first-child > a { padding-left: 0; }
+	.main-menu > li:last-child > a { padding-right: 0; }
 
 .main-menu > .has-children > a,
 .main-menu > .page_item_has_children > a { padding-right: 47px; position: relative; }
